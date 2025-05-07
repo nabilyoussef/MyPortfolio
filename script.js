@@ -69,36 +69,234 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeEffect, 1000);
     }
     
-    // Project Filtering
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
+    // Project Slider
+    const projectSlides = document.querySelectorAll('.project-slide');
+    const sliderDotsContainer = document.querySelector('.slider-dots');
+    const projectPrevButton = document.querySelector('.slider-btn-left');
+    const projectNextButton = document.querySelector('.slider-btn-right');
     
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
+    let currentSlideIndex = 0;
+    
+    // Initialize project slider
+    function initProjectSlider() {
+        // Create dots based on number of slides
+        createProjectDots();
+        
+        // Show first slide
+        showProjectSlide(0);
+        
+        // Add event listeners for navigation
+        if (projectPrevButton) {
+            projectPrevButton.addEventListener('click', prevProjectSlide);
+        }
+        
+        if (projectNextButton) {
+            projectNextButton.addEventListener('click', nextProjectSlide);
+        }
+    }
+    
+    // Create dots for project navigation
+    function createProjectDots() {
+        if (!sliderDotsContainer) return;
+        
+        sliderDotsContainer.innerHTML = '';
+        
+        projectSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
             
-            const filterValue = this.getAttribute('data-filter');
-            
-            projectItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 200);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 500);
-                }
+            dot.addEventListener('click', () => {
+                showProjectSlide(index);
             });
+            
+            sliderDotsContainer.appendChild(dot);
         });
+    }
+    
+    // Show specific project slide
+    function showProjectSlide(index) {
+        if (projectSlides.length === 0) return;
+        
+        // Handle index bounds
+        if (index < 0) index = projectSlides.length - 1;
+        if (index >= projectSlides.length) index = 0;
+        
+        currentSlideIndex = index;
+        
+        // Hide all slides
+        projectSlides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Show current slide
+        projectSlides[currentSlideIndex].classList.add('active');
+        
+        // Update dots
+        updateProjectDots();
+    }
+    
+    // Update active project dot
+    function updateProjectDots() {
+        if (!sliderDotsContainer) return;
+        
+        const dots = sliderDotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach((dot, index) => {
+            if (index === currentSlideIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Navigate to next project slide
+    function nextProjectSlide() {
+        showProjectSlide(currentSlideIndex + 1);
+    }
+    
+    // Navigate to previous project slide
+    function prevProjectSlide() {
+        showProjectSlide(currentSlideIndex - 1);
+    }
+    
+    // Initialize project slider on page load
+    initProjectSlider();
+    
+    // Image Slider within each project
+    const projectImageContainers = document.querySelectorAll('.project-img-container');
+    
+    // Initialize image sliders for each project
+    projectImageContainers.forEach(container => {
+        const images = container.querySelectorAll('.project-img');
+        const prevBtn = container.querySelector('.img-prev-btn');
+        const nextBtn = container.querySelector('.img-next-btn');
+        const dotsContainer = container.parentElement.querySelector('.img-dots');
+        
+        let currentImgIndex = 0;
+        
+        // Create image dots
+        if (dotsContainer) {
+            images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('img-dot');
+                if (index === 0) dot.classList.add('active');
+                
+                dot.addEventListener('click', () => {
+                    showImage(index);
+                });
+                
+                dotsContainer.appendChild(dot);
+            });
+        }
+        
+        // Show specific image
+        function showImage(index) {
+            if (images.length === 0) return;
+            
+            // Handle index bounds
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            
+            currentImgIndex = index;
+            
+            // Hide all images
+            images.forEach(img => {
+                img.classList.remove('active');
+            });
+            
+            // Show current image
+            images[currentImgIndex].classList.add('active');
+            
+            // Update dots
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('.img-dot');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentImgIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+        }
+        
+        // Navigate to next image
+        function nextImage() {
+            showImage(currentImgIndex + 1);
+        }
+        
+        // Navigate to previous image
+        function prevImage() {
+            showImage(currentImgIndex - 1);
+        }
+        
+        // Add event listeners for image navigation
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                prevImage();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                nextImage();
+            });
+        }
     });
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+            nextProjectSlide();
+        } else if (e.key === 'ArrowLeft') {
+            prevProjectSlide();
+        }
+    });
+    
+    // Add swipe support for touch devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    const slider = document.querySelector('.project-slider-container');
+    
+    if (slider) {
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left, go to next slide
+            nextProjectSlide();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right, go to previous slide
+            prevProjectSlide();
+        }
+    }
+    
+    // Auto-advance slides every 5 seconds
+    let slideInterval = setInterval(nextProjectSlide, 5000);
+    
+    // Pause auto-advance when hovering over slider
+    if (slider) {
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextProjectSlide, 5000);
+        });
+    }
     
     // Form Validation and Submission
     const contactForm = document.getElementById('contactForm');

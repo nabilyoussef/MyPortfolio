@@ -100,8 +100,8 @@
                 <div class="skill-category">
                     <div class="skill-items">
                         <div class="skill-item"> <div class="skill-info"><h4>PCB Design</h4> Altium Designer, KiCAD, EasyEDA <p>90%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 90%"></div> </div> </div>
-                        <div class="skill-item"> <div class="skill-info"><h4>Hardware Testing</h4>  Oscilloscope, Logic Analyzer <p>90%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 90%"></div> </div> </div>
                         <div class="skill-item"> <div class="skill-info"><h4>Circuit Simulation</h4>LTspice, Proteus, TINA TI <p>80%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 80%"></div> </div> </div>
+                        <div class="skill-item"> <div class="skill-info"><h4>Hardware Testing</h4>  Oscilloscope, Logic Analyzer <p>80%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 80%"></div> </div> </div>
                         <div class="skill-item"> <div class="skill-info"><h4>Sensor Integration</h4> <p>80%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 80%"></div> </div> </div>
                         <div class="skill-item"> <div class="skill-info"><h4>Power Electronics </h4>DC-DC converters, motor drivers <p>75%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 75%"></div> </div> </div>
                         <div class="skill-item"> <div class="skill-info"><h4>Debugging Tools</h4> JTAG, SWD <p>70%</p> </div> <div class="skill-bar"><div class="skill-level" style="width: 70%"></div> </div> </div>
@@ -129,95 +129,236 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="app">App</button>
-                <button class="filter-btn" data-filter="design">Design</button>
-            </div>
-            <div class="projects-grid">
-                <div class="project-item" data-category="web">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+            <div class="project-slider-container">
+                <!-- Left Navigation Button -->
+                <button class="slider-btn slider-btn-left prev-btn"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="project-slider">
+                    <div class="project-slide" data-category="web">
+                        <div class="project-slide-content">
+                            <div class="project-img-slider">
+                                <div class="project-img-container">
+                                    <!-- Project Image Navigation -->
+                                    <button class="img-nav-btn img-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                                    
+                                    <div class="project-img-wrapper">
+                                        <div class="project-img active"> <img src="img/Project1/8086 (1).jpg" alt="Project 1 - Image 1"></div>
+                                        <div class="project-img "> <img src="img/Project1/8086 (2).jpg" alt="Project 1 - Image 2"></div>
+                                        <div class="project-img "> <img src="img/Project1/8086 (3).jpg" alt="Project 1 - Image 3"></div>
+                                        <div class="project-img "> <img src="img/Project1/8086 (4).jpg" alt="Project 1 - Image 4"></div>
+                                        <div class="project-img "> <img src="img/Project1/8086 (5).jpg" alt="Project 1 - Image 5"></div>
+                                    </div>
+                                    
+                                    <button class="img-nav-btn img-next-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <!-- Image Dots Navigation -->
+                                <div class="img-dots"></div>
+                            </div>
+                            
+                            <div class="project-info">
+                                <h3>8086 Microprocessor Trainer Kit</h3>
+                                <p>Origin-Labs</p>
+                                <p class="project-description">This is a detailed description of Project One. It explains the technologies used, challenges faced, and solutions implemented.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Project One</h3>
-                        <p>Web Development</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    <div class="project-slide" data-category="app">
+                        <div class="project-slide-content">
+                            <div class="project-img-slider">
+                                <div class="project-img-container">
+                                    <!-- Project Image Navigation -->
+                                    <button class="img-nav-btn img-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                                    
+                                    <div class="project-img-wrapper">
+                                        <div class="project-img active">
+                                            <img src="https://via.placeholder.com/600x400/ff0000/fff" alt="Project 2 - Image 1">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/00ff00/fff" alt="Project 2 - Image 2">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/0000ff/fff" alt="Project 2 - Image 3">
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="img-nav-btn img-next-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <!-- Image Dots Navigation -->
+                                <div class="img-dots"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Project Two</h3>
+                                <p>App Development</p>
+                                <p class="project-description">This is a detailed description of Project Two. It explains the technologies used, challenges faced, and solutions implemented.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-slide" data-category="design">
+                        <div class="project-slide-content">
+                            <div class="project-img-slider">
+                                <div class="project-img-container">
+                                    <!-- Project Image Navigation -->
+                                    <button class="img-nav-btn img-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                                    
+                                    <div class="project-img-wrapper">
+                                        <div class="project-img active">
+                                            <img src="https://via.placeholder.com/600x400/ffff00/000" alt="Project 3 - Image 1">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/00ffff/000" alt="Project 3 - Image 2">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/ff00ff/000" alt="Project 3 - Image 3">
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="img-nav-btn img-next-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <!-- Image Dots Navigation -->
+                                <div class="img-dots"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Project Three</h3>
+                                <p>UI/UX Design</p>
+                                <p class="project-description">This is a detailed description of Project Three. It explains the design process, user research, and final deliverables.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-slide" data-category="web">
+                        <div class="project-slide-content">
+                            <div class="project-img-slider">
+                                <div class="project-img-container">
+                                    <!-- Project Image Navigation -->
+                                    <button class="img-nav-btn img-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                                    
+                                    <div class="project-img-wrapper">
+                                        <div class="project-img active">
+                                            <img src="https://via.placeholder.com/600x400/990000/fff" alt="Project 4 - Image 1">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/009900/fff" alt="Project 4 - Image 2">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/000099/fff" alt="Project 4 - Image 3">
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="img-nav-btn img-next-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <!-- Image Dots Navigation -->
+                                <div class="img-dots"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Project Four</h3>
+                                <p>Web Development</p>
+                                <p class="project-description">This is a detailed description of Project Four. It explains the technologies used, challenges faced, and solutions implemented.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-slide" data-category="app">
+                        <div class="project-slide-content">
+                            <div class="project-img-slider">
+                                <div class="project-img-container">
+                                    <!-- Project Image Navigation -->
+                                    <button class="img-nav-btn img-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                                    
+                                    <div class="project-img-wrapper">
+                                        <div class="project-img active">
+                                            <img src="https://via.placeholder.com/600x400/cc6600/fff" alt="Project 5 - Image 1">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/6600cc/fff" alt="Project 5 - Image 2">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/00cccc/000" alt="Project 5 - Image 3">
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="img-nav-btn img-next-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <!-- Image Dots Navigation -->
+                                <div class="img-dots"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Project Five</h3>
+                                <p>App Development</p>
+                                <p class="project-description">This is a detailed description of Project Five. It explains the technologies used, challenges faced, and solutions implemented.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-slide" data-category="design">
+                        <div class="project-slide-content">
+                            <div class="project-img-slider">
+                                <div class="project-img-container">
+                                    <!-- Project Image Navigation -->
+                                    <button class="img-nav-btn img-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                                    
+                                    <div class="project-img-wrapper">
+                                        <div class="project-img active">
+                                            <img src="https://via.placeholder.com/600x400/cc0066/fff" alt="Project 6 - Image 1">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/66cc00/fff" alt="Project 6 - Image 2">
+                                        </div>
+                                        <div class="project-img">
+                                            <img src="https://via.placeholder.com/600x400/0066cc/fff" alt="Project 6 - Image 3">
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="img-nav-btn img-next-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <!-- Image Dots Navigation -->
+                                <div class="img-dots"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Project Six</h3>
+                                <p>UI/UX Design</p>
+                                <p class="project-description">This is a detailed description of Project Six. It explains the design process, user research, and final deliverables.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-item" data-category="app">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 2">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Two</h3>
-                        <p>App Development</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" data-category="design">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 3">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Three</h3>
-                        <p>UI/UX Design</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" data-category="web">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 4">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Four</h3>
-                        <p>Web Development</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" data-category="app">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 5">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Five</h3>
-                        <p>App Development</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item" data-category="design">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 6">
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Six</h3>
-                        <p>UI/UX Design</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
+                
+                <!-- Right Navigation Button -->
+                <button class="slider-btn slider-btn-right next-btn"><i class="fas fa-chevron-right"></i></button>
+                
+                <!-- Slider Dots Navigation -->
+                <div class="slider-dots-container">
+                    <div class="slider-dots"></div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
